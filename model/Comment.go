@@ -2,6 +2,6 @@ package model
 
 type Comment struct {
 	Model
-	Author  uint   `json:"author"`
+	Author  string `json:"author"`
 	Content string `json:"content"`
 }
