@@ -10,7 +10,7 @@ import (
 func (s *Server) HandleBindingError(c *gin.Context, err error) {
 	s.Log.WithFields(logrus.Fields{
 		"error": err.Error(),
-	}).Warn("Invalid request: binding JSON failed")
+	}).Warn("Invalid request: binding failed")
 	c.JSON(http.StatusOK, InvalidRequest("Invalid request")) //传递到前端的错误信息没有log记录的详细，是为了避免敏感信息通过err被泄露
 }
 

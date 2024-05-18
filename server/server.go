@@ -23,7 +23,9 @@ func NewServer(Config ServerConfig, Log *logrus.Logger, DB *gorm.DB, Router *gin
 	s := &Server{Config: Config, Log: Log, DB: DB, Router: Router}
 	s.Router.Use(logging.LogMiddleware(s.Log))
 	s.Router.GET("/ping", s.Ping)
+	s.Router.GET("/comment/get", s.GetComments)
 	s.Router.POST("/comment/add", s.CreateComment)
+	s.Router.POST("/comment/delete", s.DeleteComment)
 	return s
 }
 
