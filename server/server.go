@@ -27,8 +27,9 @@ func NewServer(Config ServerConfig, Log *logrus.Logger, DB *gorm.DB, Router *gin
 }
 
 func (s *Server) Start() {
-	s.Log.Info("Server starting on", s.Config.Host+":"+s.Config.Port)
-	err := s.Router.Run(s.Config.Host + ":" + s.Config.Port)
+	url := s.Config.Host + ":" + s.Config.Port
+	s.Log.Info("Server starting on", url)
+	err := s.Router.Run(s.Config.Host + ":" + url)
 	if err != nil {
 		s.Log.WithFields(logrus.Fields{
 			"error": err.Error(),
