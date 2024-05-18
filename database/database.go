@@ -1,6 +1,7 @@
 package database
 
 import (
+	"github.com/cyrus28214/comments-area/model"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -20,4 +21,8 @@ func Connect(config DatabaseConfig) (*gorm.DB, error) {
 		return nil, err
 	}
 	return db, nil
+}
+
+func Migrate(db *gorm.DB) error {
+	return db.AutoMigrate(&model.Comment{})
 }

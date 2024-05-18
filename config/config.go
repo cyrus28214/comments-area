@@ -3,6 +3,7 @@ package config
 import (
 	"fmt"
 
+	"github.com/cyrus28214/comments-area/database"
 	"github.com/cyrus28214/comments-area/logging"
 	"github.com/spf13/viper"
 )
@@ -12,7 +13,8 @@ type Config struct {
 		Host string `mapstructure:"host"`
 		Port string `mapstructure:"port"`
 	} `mapstructure:"server"`
-	Logging logging.LoggingConfig `mapstructure:"logging"`
+	Logging  logging.LoggingConfig   `mapstructure:"logging"`
+	Database database.DatabaseConfig `mapstructure:"database"`
 }
 
 func GetConfig(configFile string) Config {
