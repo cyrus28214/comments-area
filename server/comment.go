@@ -96,7 +96,7 @@ func (s *Server) CreateComment(c *gin.Context) {
 	}
 
 	s.Log.Debugf("Comment created with ID: %d", comment.ID)
-	c.JSON(http.StatusCreated, res)
+	c.JSON(http.StatusCreated, Success(res))
 }
 
 type deleteCommentRequest struct {
