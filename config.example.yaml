@@ -1,0 +1,6 @@
+server:
+  port: 3000
+  host: localhost
+logging:
+  level: info
+  path: logs/app.log
