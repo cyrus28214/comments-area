@@ -2,7 +2,7 @@
 
 X-Lab训练项目，评论区（后端）
 
-前端项目地址：[comments-area](https://github.com/cyrus28214/comments-area-frontend)
+前端项目地址：[comments-area-frontend](https://github.com/cyrus28214/comments-area-frontend)
 
 # 启动
 
