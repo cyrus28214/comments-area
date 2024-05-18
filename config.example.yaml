@@ -3,4 +3,11 @@ server:
   host: localhost
 logging:
   level: info
-  path: logs/app.log
+  format: text
+  output: logs/app.log
+database:
+  host: localhost
+  port: 3306
+  user: test
+  password: test
+  database: test
