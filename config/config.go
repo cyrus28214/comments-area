@@ -5,14 +5,12 @@ import (
 
 	"github.com/cyrus28214/comments-area/database"
 	"github.com/cyrus28214/comments-area/logging"
+	"github.com/cyrus28214/comments-area/server"
 	"github.com/spf13/viper"
 )
 
 type Config struct {
-	Server struct {
-		Host string `mapstructure:"host"`
-		Port string `mapstructure:"port"`
-	} `mapstructure:"server"`
+	Server   server.ServerConfig     `mapstructure:"server"`
 	Logging  logging.LoggingConfig   `mapstructure:"logging"`
 	Database database.DatabaseConfig `mapstructure:"database"`
 }
