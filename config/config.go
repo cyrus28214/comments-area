@@ -3,6 +3,7 @@ package config
 import (
 	"fmt"
 
+	"github.com/cyrus28214/comments-area/logging"
 	"github.com/spf13/viper"
 )
 
@@ -11,10 +12,7 @@ type Config struct {
 		Host string `mapstructure:"host"`
 		Port string `mapstructure:"port"`
 	} `mapstructure:"server"`
-	Logging struct {
-		Level string `mapstructure:"level"`
-		Path  string `mapstructure:"path"`
-	} `mapstructure:"logging"`
+	Logging logging.LoggingConfig `mapstructure:"logging"`
 }
 
 func GetConfig(configFile string) Config {
