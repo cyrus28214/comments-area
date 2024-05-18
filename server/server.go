@@ -23,13 +23,13 @@ func NewServer(Config ServerConfig, Log *logrus.Logger, DB *gorm.DB, Router *gin
 	s := &Server{Config: Config, Log: Log, DB: DB, Router: Router}
 	s.Router.Use(logging.LogMiddleware(s.Log))
 	s.Router.GET("/ping", s.Ping)
-	s.Router.POST("./comments/add")
+	s.Router.POST("/comment/add", s.CreateComment)
 	return s
 }
 
 func (s *Server) Start() {
 	url := s.Config.Host + ":" + s.Config.Port
-	s.Log.Info("Server starting on", url)
+	s.Log.Info("Server starting on ", url)
 	err := s.Router.Run(url)
 	if err != nil {
 		s.Log.WithFields(logrus.Fields{

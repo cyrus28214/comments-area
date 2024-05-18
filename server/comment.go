@@ -37,9 +37,12 @@ func (s *Server) CreateComment(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, CreateCommentResponse{
+	res := CreateCommentResponse{
 		ID:      comment.ID,
 		Name:    comment.Author,
 		Content: comment.Content,
-	})
+	}
+
+	s.Log.Debugf("Comment created with ID: %d", comment.ID)
+	c.JSON(http.StatusCreated, res)
 }
